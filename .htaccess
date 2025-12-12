@@ -1,0 +1,72 @@
+# ────────────────────────────────────────────────
+# 🌐 CONFIGURATION POUR APP REACT (SPA)
+# ────────────────────────────────────────────────
+
+# ✅ Activer la réécriture d'URL (nécessaire à React Router)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # 🔒 Forcer HTTPS (si certificat SSL activé)
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # 🏡 Si le fichier ou dossier demandé existe, on le sert tel quel
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # 🚀 Sinon, on redirige vers index.html pour que React gère la route
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# ────────────────────────────────────────────────
+# ⚡ OPTIMISATION DES PERFORMANCES
+# ────────────────────────────────────────────────
+
+# ✅ Compression GZIP pour réduire le poids des fichiers
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
+
+# ✅ Mise en cache des fichiers statiques versionnés (React ajoute un hash dans les noms)
+<IfModule mod_expires.c>
+  ExpiresActive On
+  # Fichiers JS/CSS/Images : cache long (1 an)
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/* "access plus 1 year"
+
+  # HTML (index.html) : cache très court pour prendre les mises à jour
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# ────────────────────────────────────────────────
+# 🔐 SÉCURITÉ DE BASE
+# ────────────────────────────────────────────────
+
+<IfModule mod_headers.c>
+  # Empêche la détection automatique du type MIME
+  Header set X-Content-Type-Options "nosniff"
+
+  # Empêche l’intégration du site dans une iframe externe (anti-clickjacking)
+  Header set X-Frame-Options "SAMEORIGIN"
+
+  # Active la protection XSS intégrée au navigateur
+  Header set X-XSS-Protection "1; mode=block"
+
+  # Optionnel : Forcer le HTTPS pour les navigateurs compatibles
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+</IfModule>
+
+# ────────────────────────────────────────────────
+# 🧱 OPTIONS DIVERS
+# ────────────────────────────────────────────────
+
+# Cache du navigateur désactivé pour le fichier de service worker (si PWA)
+<FilesMatch "service-worker.js">
+  Header set Cache-Control "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0"
+</FilesMatch>
+
+# Désactiver l’affichage du listing des dossiers
+Options -Indexes
+# ────────────────────────────────────────────────
