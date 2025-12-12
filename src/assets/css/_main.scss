@@ -1,0 +1,17 @@
+main {
+  width: 75%;
+  min-height: 95vh;
+  max-height: 95vh;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+
+  gap: 50px;
+  padding: 70px 50px;
+
+  @media screen and (max-width: 960px) {
+    width: 100%;
+    height: auto;
+    min-height: 80vh;
+    max-height: max-content;
+  }
+}

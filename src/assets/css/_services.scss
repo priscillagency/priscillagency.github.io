@@ -1,0 +1,62 @@
+@use "settings";
+
+#services {
+  text-align: center;
+  display: flex;
+  gap: 50px;
+
+  .services-list {
+    gap: 50px;
+    @media screen and (max-width: 960px) {
+    }
+
+    .fdcr {
+      @media screen and (max-width: 960px) {
+        flex-direction: column-reverse !important;
+      }
+    }
+
+    .item {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 50px;
+      align-items: center;
+
+      @media screen and (max-width: 960px) {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      img {
+        width: 100%;
+        border-radius: 5px;
+        box-shadow: 0 0 2px settings.$black;
+      }
+
+      .text-item {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        img {
+          width: 50%;
+          border-radius: 0;
+          box-shadow: none;
+        }
+      }
+
+      .right {
+        text-align: left;
+      }
+
+      .left {
+        text-align: right;
+
+        img {
+          margin: 0 0 0 auto;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,98 @@
+// ======
+// COLORS
+// ======
+$color1: #d3a46a;
+$text: #000;
+$textLight: #fff;
+$black: #000;
+$blackShadow: rgba(0, 0, 0, 0.4);
+$white: #fff;
+
+// =====
+// FONTS
+// =====
+@font-face {
+  font-family: "cocomat";
+  src: url(../fonts/cocomat-regular.ttf);
+}
+
+$bodyFont: "cocomat", "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+  "Lucida Sans", Arial, sans-serif;
+$headingsFont: "cocomat", "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+  "Lucida Sans", Arial, sans-serif;
+
+// =======
+// GENERAL
+// =======
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.2s ease !important;
+  user-select: none;
+  cursor: default;
+  color: $text;
+  font-family: $bodyFont;
+  font-size: 13px;
+}
+
+body {
+  position: relative;
+}
+
+header,
+footer {
+  background: $black;
+
+  * {
+    color: $textLight;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $headingsFont;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 30px;
+}
+
+h2 {
+  font-size: 15px;
+}
+
+h3 {
+  font-size: 14px;
+}
+
+h4 {
+  font-size: 13px;
+}
+
+h5 {
+  font-size: 12px;
+}
+
+h6 {
+  font-size: 11px;
+}
+
+a {
+  font-weight: normal;
+  text-decoration: none;
+  cursor: pointer;
+
+  * {
+    cursor: pointer;
+  }
+
+  &:hover {
+    color: $color1;
+  }
+}

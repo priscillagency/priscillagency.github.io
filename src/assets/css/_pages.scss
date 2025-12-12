@@ -1,0 +1,16 @@
+.pages {
+  background: url(../images/bg-pages.webp) top/cover;
+  background-attachment: scroll;
+  flex-direction: column;
+
+  .title-page {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+
+    img {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+}

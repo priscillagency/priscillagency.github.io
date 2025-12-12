@@ -1,0 +1,18 @@
+@use "settings";
+
+// ======
+// FOOTER
+// ======
+footer {
+  width: 100%;
+  padding: 1vh 5vw;
+  min-height: 5vh;
+  border-top: 1px solid settings.$color1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  * {
+    font-size: 10px !important;
+  }
+}

@@ -1,0 +1,68 @@
+@use "settings";
+
+button {
+  padding: 8px 20px 5px;
+  border-radius: 3px;
+  border: 1px solid settings.$black;
+  color: settings.$textLight;
+  background: settings.$black;
+  text-transform: uppercase;
+  font-size: 12px;
+
+  &:hover {
+    background: transparent;
+    color: settings.$text;
+    box-shadow: inset 0 0 5px settings.$blackShadow;
+  }
+}
+
+.button2 {
+  background: transparent;
+  color: settings.$text;
+}
+
+.button3 {
+  background: settings.$color1;
+  border: 1px solid settings.$color1;
+  color: settings.$text;
+  text-transform: none;
+}
+
+.button-call {
+  background: settings.$color1;
+  position: fixed;
+  bottom: 50px;
+  right: 30px;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  box-shadow: 0 0 2px settings.$blackShadow;
+
+  @media screen and (max-width: 720px) {
+    width: 50px;
+    height: 50px;
+
+    i {
+      font-size: 20px !important;
+    }
+  }
+
+  * {
+    color: settings.$text;
+  }
+
+  i {
+    font-size: 30px;
+  }
+
+  &:hover {
+    box-shadow: inset 0 0 5px settings.$black;
+
+    * {
+      color: settings.$text;
+    }
+  }
+}
