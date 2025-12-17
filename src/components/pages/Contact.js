@@ -22,8 +22,7 @@ const Contact = () => {
             accompagnement professionnel, à la hauteur des ambitions de votre
             marque.
             <br />
-            Découvrez les témoignages de celles et ceux qui font rayonner leur
-            présence digitale à nos côtés.
+            Contactez-nous et démarrez votre projet dès maintenant.
           </p>
         </div>
 
